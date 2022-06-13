@@ -1544,9 +1544,10 @@ article .container div:hover::after{
 
 .discount .discount-content .right .info{
     max-width: 600px;
+    margin: auto;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
-    text-align: center;
     justify-content: center;
     margin: auto;
 }
