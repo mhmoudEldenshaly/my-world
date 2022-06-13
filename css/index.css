@@ -12,8 +12,9 @@
     padding: 0;
     list-style: none;
     text-decoration: none;
-
+    
 }
+
 
 body{
     font-family: 'Cairo', sans-serif;
@@ -993,7 +994,7 @@ article .container div:hover::after{
     gap: 60px;
 }
 
-.how img{
+.how .image-holder{
     max-width: 100%;
 }
 
@@ -1006,7 +1007,6 @@ article .container div:hover::after{
 
 .how .container .steps > div{
     width: 100%;
-    height: 200px;
     background-color: #F6F5F5;
     position: relative;
     display: flex;
@@ -1014,6 +1014,26 @@ article .container div:hover::after{
     align-items: center;
     border-radius: 5px;
     border: 2px white solid;
+    z-index: 1;
+}
+
+.how .container .steps > div img{
+    width: 60px;
+    margin: 20px;
+}
+
+.how .container .steps > div .text{
+    margin: 20px;
+    font-size: 18px;
+}
+
+.how .container .steps > div p{
+    line-height: 1.7;
+    padding: 0;
+}
+
+.how .container .steps > div h3{
+    margin-bottom: 10px;
 }
 
 @media (max-width: 992px) {
@@ -1030,6 +1050,7 @@ article .container div:hover::after{
         background-color: var(--socend-color);
         position: absolute;
         transition: .3s;
+        z-index: -1;
     }
     
     .how .container .steps > div:hover::after{
@@ -1073,15 +1094,24 @@ article .container div:hover::after{
 
 .events .time > div{
     border-radius: 5px;
-    border: 1px gray solid;
+    border: 1px gainsboro solid;
     text-align: center;
     width: 75px;
+    color: var(--main-color);
+}
+
+.events .time > div:hover{
+    border-color: var(--main-color);
 }
 
 .events .time .description{
-    border-top: 1px solid gray;
+    border-top: 1px solid gainsboro;
     padding-top: 5px;
     padding-bottom: 5px;
+}
+
+.events .time >div:hover .description{
+    border-top: 1px solid var(--main-color);
 }
 
 
@@ -1089,7 +1119,7 @@ article .container div:hover::after{
     text-align: center;
 }
 
-.events .events-contact{
+.events .events-contact form{
     margin: auto;
     background-color: var(--background-color);
     display: flex;
@@ -1100,12 +1130,16 @@ article .container div:hover::after{
     margin-top: 60px;
 }
 
+
 .events .events-contact .email{
     background-color: white;
     width: 70%;
     padding: 25px;
     border-radius: 40px;
+    border: none;
+    outline: none;
 }
+
     
 .events .events-contact button{
     padding: 25px;
@@ -1116,6 +1150,22 @@ article .container div:hover::after{
     color: white;
     font-weight: bold;
 }
+
+@media(max-width: 768px){
+    .events .events-contact form{
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .events .events-contact .email{
+        border-radius: 0;
+    }
+
+    .events .events-contact button{
+        border-radius: 0;
+    }
+}
+
 /* end events */
 
 /* start PRICING PLAN*/
@@ -1132,11 +1182,84 @@ article .container div:hover::after{
 
 .price .container > div{
     background-color: white;
-    height: 600px;
+    height: 700px;
     box-shadow: 0 12px 20px 0 rgb(0 0 0 / 13%), 0 2px 4px 0 rgb(0 0 0 / 12%);
     position: relative;
+    display: flex;
+    z-index: 1;
 }
 
+
+
+.price .container > div button{
+    border: 2px solid var(--main-color);
+    background-color: white;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 30px;
+    color: var(--main-color);
+    font-weight: bold;
+    transition: .3s;
+}
+
+.price .container > div button:hover{
+    background-color: var(--main-color);
+    color: white;
+}
+
+.price .container > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.price .container > div .top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.price .container > div .top .title{
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 25px;
+}
+
+.price .container > div .top i{
+    font-size: 100px;
+    margin-top: 25px;
+    color:var(--main-color);
+}
+
+.price .container > div .top .coast{
+    color: var(--main-color);
+    font-size: 50px;
+    font-weight: bold;
+    margin-top: 25px;
+}
+
+.price .container > div .top .time{
+    font-size: 18px;
+    margin-bottom: 20px;
+    color:#B4B6B9;
+}
+
+.price .container > div .bottom {
+    width: 100%;
+}
+
+.price .container > div .bottom li{
+    padding: 15px;
+    border-top: 1px solid var(--background-color);
+}
+
+.price .container > div .bottom i{
+    color: var(--main-color);
+    margin-right: 10px;
+    font-size: 20px;
+}
 
 .price .container > div::after{
     content: "";
@@ -1145,8 +1268,11 @@ article .container div:hover::after{
     background-color: var(--third-color);
     position: absolute;
     transition: .3s;
-
+    z-index: -1;
+    top: 0;
+    left: 0;
 }
+
 
 .price .container > div:hover::after{
     width: 100%;
@@ -1161,6 +1287,7 @@ article .container div:hover::after{
     transition: .3s;
     bottom: 0;
     right: 0;
+    z-index: -1;
 }
 
 .price .container > div:hover::before{
@@ -1233,6 +1360,7 @@ article .container div:hover::after{
 .top-videos .container ul a{
     text-decoration: none;
     color: black;
+    transition: .3s;
 }
 
 .top-videos .container ul li{
@@ -1241,7 +1369,17 @@ article .container div:hover::after{
     border-top: 1px var(--background-color) solid;
     color: gray;
     width: 100%;
+    transition: .3s;
 }
+
+.top-videos .container ul li:hover{
+    background-color: #f6f6f683;
+}
+
+.top-videos .container ul li:hover a{
+    color: var(--main-color);
+}
+
 
 .top-videos .container ul li p{
     padding: 0;
@@ -1291,6 +1429,26 @@ article .container div:hover::after{
     height: 200px;
     background-color: white;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.our .container > div .num{
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.our .container > div .details{
+    font-size: 18px;
+    color: var(--main-color);
+    font-weight: bold;
+}
+
+.our .container > div i{
+    font-size: 40px;
 }
 
 
@@ -1301,6 +1459,8 @@ article .container div:hover::after{
     background-color: var(--main-color);
     position: absolute;
     transition: 1s;
+    left: 0;
+    top: 0;
 }
 
 .our .container > div:hover::before{
@@ -1322,49 +1482,104 @@ article .container div:hover::after{
     height: 100%;
 }
 
+/* ending our awesome status */
+
+/* starting dicount */
+
+
 .discount-content{
     display: flex;
+    flex-wrap: wrap;
 }
 
+.discount-content > div{
+    width: calc(100% / 2);
+}
 
+@media (max-width: 992px) {
+    .discount-content > div{
+        width: 100%;
+    }
+  }
 
-.discount .discount-content .left{
+.discount .discount-content .left {
     background-color: var(--main-color);
-    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.discount .discount-content .left .info{
+    max-width: 600px;
     text-align: center;
 }
 
-.discount .discount-content .left .text{
+.discount .discount-content .left .info .text{
     padding-top: 80px;
     padding-right: 60px;
     padding-left: 60px;
     color: white;
 }
 
-.discount .discount-content .left .text h1{
+.discount .discount-content .left .info .text h1{
     font-size: 40px;
 }
 
-.discount .discount-content .left .text span{
-    color: gold;
-    font-weight: bold;
-    font-size: 60px;
-}
 
-.discount .discount-content .left .text p{
+.discount .discount-content .left .info .text p{
     font-size: 18px;
     line-height: 1.5;
 }
 
 
-.discount .discount-content .left img{
+.discount .discount-content .left .info img{
     max-width: 300px;
 }
 
 .discount .discount-content .right{
-    text-align: center;
-    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.discount .discount-content .right .info{
+    max-width: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+}
+
+
+.discount .discount-content .right .info form{
+    max-width: 300px;
+}
+
+.discount .discount-content .right .info form input, textarea{
+    border: none;
+    outline: none;
+    width: 100%;
+    background-color: var(--third-color);
+    border-bottom: 1px  solid #B4B6B9;
+    margin-bottom: 20px;
+    padding: 15px;
+    resize: none;
+}
+
+
+.discount .discount-content .right .info button{
+    width: 100%;
+    background-color: var(--main-color);
+    border: none;
+    padding: 15px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+
 
 /* ending the discount */
 
@@ -1432,7 +1647,6 @@ footer .container .about .social .fa-youtube:hover{
 }
 
 
-
 footer .container .important{
     color: #B4B6B9;
     
@@ -1488,7 +1702,6 @@ footer .container .contacts i{
     margin-right: 20px;
     color: var(--main-color);
 }
-
 
 
 /* ending footer */
